@@ -1,0 +1,108 @@
+﻿@{
+
+    Layout = null;
+
+
+}
+
+@{
+    bool LblnMensaje = false;
+    try
+    {
+        LblnMensaje = Convert.ToBoolean(Session["GblnMostrarMensaje"].ToString());
+    }
+    catch
+    {
+
+    }
+}
+
+@try
+{
+    if (LblnMensaje)
+    {
+        string LstrMensaje = Session["GstrMensajeLogin"].ToString();
+
+        if (LstrMensaje.Equals("Inactivo"))
+        {
+            <script>
+                    alert('Su usuario se encuentra deshabilitado');
+            </script>
+        }
+        else
+        {
+            <script>
+                    alert('Ingrese Usuario/Contraseña correctos');
+            </script>
+        }
+    }
+}
+catch
+{
+
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SISTEMA DE GESTIÓN DE CONFIGURACIÓN DE SOFTWARE</title>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+    <link href="~/Content/ultimo_admin/admin/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="~/Content/ultimo_admin/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/ultimo_admin/admin/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/ultimo_admin/admin/css/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="light_theme  fixed_header left_nav_fixed">
+  
+        <div class="wrapper">
+            <!--\\\\\\\ wrapper Start \\\\\\-->
+
+
+
+
+            <div class="login_page">
+                <div class="login_content">
+                    <div class="panel-heading border login_heading">INICIAR SESIÓN</div>
+    @using (Html.BeginForm("mtdSeguridad", "cnfClsSeguridad", FormMethod.Post, new { @class="form-horizontal"}))
+    {
+                        <div class="form-group">
+
+                            <div class="col-sm-10">
+                                <input id="USUusuario" name="LstrUsuario" class="form-control" type="text" placeholder="Usuario" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-sm-10">
+                                <input id="USUcontrasena" name="LstrPassword" class="form-control" type="password" placeholder="Contraseña" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+
+
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-default pull-center">INGRESAR</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+}
+                </div>
+            </div>
+
+
+
+        </div>
+  
+
+    <script src="~/Content/ultimo_admin/admin/js/jquery-2.1.0.js"></script>
+    <script src="~/Content/ultimo_admin/admin/js/bootstrap.min.js"></script>
+    <script src="~/Content/ultimo_admin/admin/js/common-script.js"></script>
+    <script src="~/Content/ultimo_admin/admin/js/jquery.slimscroll.min.js"></script>
+</body>
+</html>

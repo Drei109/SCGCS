@@ -1,0 +1,359 @@
+﻿@model cnfPrySGCS.Models.cnfMNTpMetodologiaEntregable.cnfMNTpMetodologiaEntregables
+@{
+    List<cnfPrySGCS.Models.cnfMNTpMetodologiaEntregable.cnfMNTpMetodologiaEntregables> GobjListarEntregable = ViewBag.GobjListarEntregable;
+    List<cnfPrySGCS.Models.cnfMTDpMetodologia> GobjListarMetodologia = ViewBag.GobjListarMetodologia;
+    List<cnfPrySGCS.Models.cnfMEFpMetodologiaFase> GobjListarFase = ViewBag.GobjListarFase;
+    int LintMetodologiaSeleccionada = -1;
+    try
+    {
+        LintMetodologiaSeleccionada = ViewBag.GintMetodologiaSeleccionada;
+    }
+    catch
+    {
+
+    }
+    bool LblnMensaje = false;
+    try
+    {
+        LblnMensaje = ViewBag.GblnMensaje;
+    }
+    catch
+    {
+
+    }
+}
+
+@try
+{
+    if (LblnMensaje)
+    {
+        string LstrMensaje = ViewBag.GstrMensajeRespuesta;
+
+        if (LstrMensaje.Equals("La Operación se Realizó Correctamente"))
+        {
+            <script>
+                    alert('La Operación se Realizó Correctamente');
+            </script>
+        }
+        else
+        {
+            <script>
+                    alert('Ocurrió un Fallo en la Operación');
+            </script>
+        }
+    }
+}
+catch
+{
+
+}
+
+<script type="text/javascript">
+(function(document) {
+  'use strict';
+
+  var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    function _onInputEvent(e) {
+      _input = e.target;
+      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+      Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+          Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    function _filter(row) {
+      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+      init: function() {
+        var inputs = document.getElementsByClassName('txtBuscar');
+        Arr.forEach.call(inputs, function(input) {
+          input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+      LightTableFilter.init();
+    }
+  });
+
+})(document);
+</script>
+
+<script type="text/javascript">
+    function mtdSeleccion(LobjObjeto) {
+        if ($(LobjObjeto).attr("name") == "MTDcodigo")
+        {
+            document.getElementById("frmCargarComboFase").submit();
+        }
+        if ($(LobjObjeto).attr("name") == "btnGuardar") {
+
+            document.getElementById("frmEntregable").submit();
+        }
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block-web">
+            <div class="header">
+                <div class="actions"> <a class="minimize" href="~/Content/ultimo_admin/admin/#"><i class="fa fa-chevron-down"></i></a></div>
+                <a href="~/cnfMantenimiento/cnfClsEntregable/cnfFrmEntregableVista"><h3 class="content-header">Entregable</h3></a>
+            </div>
+            <div class="porlets-content">
+
+                @using (Html.BeginForm("mtdGuardarPrincipal", "cnfClsEntregable", FormMethod.Post, new { id = "frmEntregable", @name = "FrmEntregable", @class = "form-horizontal row-border" }))
+                {
+                    @Html.HiddenFor(x => x.MNTcodigo)
+
+                    <div class="form-group">
+                        <label name="lblCodigo" class="col-sm-3 control-label">Codigo</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x => x.MNTcodigo, new { @class = "form-control", @disabled = true })
+                        </div>
+                    </div><!--/form-group-->
+                }
+
+
+                @using (Html.BeginForm("mtdCargarComboFase", "cnfClsEntregable", FormMethod.Post, new { @id = "frmCargarComboFase", @class = "form-horizontal row-border" }))
+                {
+                <div class="form-group">
+                    <label name="lblMetodologia" class="col-sm-3 control-label">Metodologia</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="MTDcodigo" name="MTDcodigo" onchange="mtdSeleccion(this);">
+                            <option selected>Seleccione</option>
+                            @try
+                            {
+                                foreach (var LobjRegistro in GobjListarMetodologia)
+                                {
+                                    if (Model.MTDcodigo == LobjRegistro.MTDcodigo)
+                                    {
+                                        if (LintMetodologiaSeleccionada == LobjRegistro.MTDcodigo)
+                                        {
+                                            <option value="@LobjRegistro.MTDcodigo" selected>@LobjRegistro.MTDnombre</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@LobjRegistro.MTDcodigo" selected>@LobjRegistro.MTDnombre</option>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (LintMetodologiaSeleccionada == LobjRegistro.MTDcodigo)
+                                        {
+                                            <option value="@LobjRegistro.MTDcodigo" selected>@LobjRegistro.MTDnombre</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@LobjRegistro.MTDcodigo">@LobjRegistro.MTDnombre</option>
+                                        }
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                foreach (var LobjRegistro in GobjListarMetodologia)
+                                {
+                                    if (LintMetodologiaSeleccionada == LobjRegistro.MTDcodigo)
+                                    {
+                                        <option value="@LobjRegistro.MTDcodigo" selected>@LobjRegistro.MTDnombre</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@LobjRegistro.MTDcodigo">@LobjRegistro.MTDnombre</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div><!--/form-group-->
+                }
+
+                <div class = "form-horizontal row-border">
+                <div class="form-group">
+                    <label name="lblFase" class="col-sm-3 control-label">Fase</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="MEFcodigo" name="MEFcodigo"  form="frmEntregable">
+                            @try
+                            {
+                                foreach (var LobjRegistro in GobjListarFase)
+                                {
+                                    if (GobjListarFase.Count != 0)
+                                    {
+                                        if (Model.MEFcodigo == LobjRegistro.MEFcodigo)
+                                        {
+                                            <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@LobjRegistro.MEFcodigo">@LobjRegistro.MEFnombre</option>
+                                        }
+                                    }
+                                }
+                            }
+                            catch
+                            {
+
+                            }
+                        </select>
+                    </div>
+                </div><!--/form-group-->
+
+                <div class="form-group">
+                    <label name="lblNombreEntregable" class="col-sm-3 control-label">Nombre del Entregable</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.MNTnombre, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmEntregable" })
+                    </div>
+                </div><!--/form-group-->
+
+                <div class="form-group">
+                    <label name="lblNomenclatura" class="col-sm-3 control-label">Nomenclatura</label>
+                    <div class="col-sm-9">
+                        @Html.TextBoxFor(x => x.MNTnomenclatura, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmEntregable" })
+                    </div>
+                </div><!--/form-group-->
+
+                <div class="form-group">
+                    <label name="lblDescripcionFase" class="col-sm-3 control-label">Descripción</label>
+                    <div class="col-sm-9">
+                        @Html.TextAreaFor(x => x.MNTdescripcion, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmEntregable" })
+                    </div>
+                </div><!--/form-group-->
+
+
+                <div class="form-group">
+                    <label name="lblEstado" class="col-sm-3 control-label">Estado</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="source" name="MNTestado" form = "frmEntregable">
+                            @try
+                            {
+                                if (Model.MNTestado.Equals(""))
+                                {
+                                    <optgroup label="Estado">
+                                        <option value="Activo">Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </optgroup>
+                                }
+                                else if (Model.MNTestado.Equals("Activo"))
+                                {
+                                    <optgroup label="Estado">
+                                        <option value="Activo" selected>Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </optgroup>
+                                }
+                                else if (Model.MNTestado.Equals("Inactivo"))
+                                {
+                                    <optgroup label="Estado">
+                                        <option value="Activo">Activo</option>
+                                        <option value="Inactivo" selected>Inactivo</option>
+                                    </optgroup>
+                                }
+                            }
+                            catch
+                            {
+                                <optgroup label="Estado">
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
+                                </optgroup>
+                            }
+
+                        </select>
+                    </div><!--/col-sm-9-->
+                </div><!--/form-group-->
+
+
+                <div class="form-group">
+                    <label name="lblFechaRegistro" class="col-sm-3 control-label">Fecha Registro</label>
+                    <div class="col-sm-9">
+                        @try
+                        {
+                            DateTime LdttFechaActual = DateTime.Now;
+                            string LstrFechaActual = LdttFechaActual.ToString("d");
+                            <input type="text" class="form-control" disabled="" name="fecha_Registro" value="@LstrFechaActual" />
+                                <input type="hidden" class="form-control" name="MNTfecha_Registro" value="@LstrFechaActual" form = "frmEntregable"/>
+                        }
+                        catch
+                        {
+
+                        }
+                    </div>
+                </div><!--/form-group-->
+
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success" name="btnGuardar" onclick="mtdSeleccion(this);">Guardar</button>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block-web">
+                            <div class="header">
+                                <div class="actions">
+                                    <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
+                                </div>
+                            </div>
+                            <div class="porlets-content">
+                                <div class="adv-table editable-table ">
+                                    <div class="margin-top-10"></div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="dataTables_length" id="editable-sample_length">
+                                            </div>
+                                        </div><div class="col-lg-12"><label>Buscar: <input class="txtBuscar form-control" aria-controls="editable-sample" data-table="order-table" type="search" placeholder="Buscar por Nombre..." /></label></div>
+                                    </div>
+                                    <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
+                                        <thead>
+                                            <tr>
+                                                <th>Codigo</th>
+                                                <th>Entregable</th>
+                                                <th>Nomenclatura</th>
+                                                <th>Fase</th>
+                                                <th>Metodologia</th>
+                                                <th>Estado</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @try
+                                            {
+                                                foreach (var LobjRegistro in GobjListarEntregable)
+                                                {
+                                                    <tr class="">
+                                                        <td>@LobjRegistro.MNTcodigo</td>
+                                                        <td>@LobjRegistro.MNTnombre</td>
+                                                        <td>@LobjRegistro.MNTnomenclatura</td>
+                                                        <td>@LobjRegistro.MEFnombre</td>
+                                                        <td>@LobjRegistro.MTDnombre</td>
+                                                        <td>@LobjRegistro.MNTestado</td>
+                                                        <td>
+                                                            <a class="btn btn-warning" href="~/cnfMantenimiento/cnfClsEntregable/cnfFrmEntregableVista/@LobjRegistro.MNTcodigo">Modificar</a>
+                                                            <a class="btn btn-success" href="~/cnfMantenimiento/cnfClsEntregable/cnfFrmEntregableRelacionVista/@LobjRegistro.MNTcodigo">Relación</a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                            catch
+                                            {
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div><!--/porlets-content-->
+                        </div><!--/block-web-->
+                    </div><!--/col-md-12-->
+                </div><!--/row-->
+            </div>
+        </div>
+    </div>
+</div>

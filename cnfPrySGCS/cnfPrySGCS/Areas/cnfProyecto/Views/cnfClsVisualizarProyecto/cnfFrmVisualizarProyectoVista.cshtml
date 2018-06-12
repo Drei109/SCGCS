@@ -1,0 +1,270 @@
+﻿@{
+    List<cnfPrySGCS.Models.cnfPRYpProyecto.cnfPRYpProyectos> GobjListarProyecto = ViewBag.GobjListarProyecto;
+    cnfPrySGCS.Models.cnfPRYpProyecto.cnfPRYpProyectos GobjProyecto = ViewBag.GobjProyecto;
+    List<cnfPrySGCS.Models.cnfUSUpUsuario> GobjListarMiembros = ViewBag.GobjListarMiembros;
+    List<cnfPrySGCS.Models.cnfMEFpMetodologiaFase> GobjListarFase = ViewBag.GobjListarFase;
+    List<cnfPrySGCS.Models.cnfPYEpProyectoEntregable.cnfPRYpProyectosEntregables> GobjListarDatos = ViewBag.GobjListarDatos;
+    List<cnfPrySGCS.Models.cnfPYEpProyectoEntregable> GobjListarDatosRelacion = ViewBag.GobjListarDatosRelacion;
+    bool GblnCargarTabla = ViewBag.GblnCargarTabla;
+}
+
+<script type="text/javascript">
+(function(document) {
+  'use strict';
+
+  var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    function _onInputEvent(e) {
+      _input = e.target;
+      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+      Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+          Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    function _filter(row) {
+      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+      init: function() {
+        var inputs = document.getElementsByClassName('txtBuscar');
+        Arr.forEach.call(inputs, function(input) {
+          input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+      LightTableFilter.init();
+    }
+  });
+
+})(document);
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block-web">
+            <div class="header">
+                <div class="actions"> <a class="minimize" href="~/Content/ultimo_admin/admin/#"><i class="fa fa-chevron-down"></i></a></div>
+                <a href="~/cnfProyecto/cnfClsVisualizarProyecto/cnfFrmVisualizarProyectoVista"><h3 class="content-header">Visualizar Proyecto</h3></a>
+            </div>
+            <div class="porlets-content">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block-web">
+                            <div class="header">
+                                <div class="actions">
+                                    <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
+                                </div>
+                            </div>
+                            <div class="porlets-content">
+                                <div class="adv-table editable-table ">
+                                    <div class="margin-top-10"></div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="dataTables_length" id="editable-sample_length">
+                                            </div>
+                                        </div><div class="col-lg-12"><label>Buscar: <input class="txtBuscar form-control" aria-controls="editable-sample" data-table="order-table" type="search" placeholder="Buscar por Nombre..." /></label></div>
+                                    </div>
+                                    <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
+                                        <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Proyecto</th>
+                                                <th>Jefe de Proyecto</th>
+                                                <th>Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @try
+                                            {
+                                                foreach (var LobjProyecto in GobjListarProyecto)
+                                                {
+                                                    <tr class="">
+                                                        <td>@LobjProyecto.PRYcodigo</td>
+                                                        <td>@LobjProyecto.PRYnombre</td>
+                                                        <td>@LobjProyecto.USUapellido.ToUpper(), @LobjProyecto.USUnombre</td>
+                                                        <td><a href="~/cnfProyecto/cnfClsVisualizarProyecto/cnfFrmVisualizarProyectoVista/@LobjProyecto.PRYcodigo" class="btn btn-primary">Detalle</a></td>
+                                                    </tr>
+                                                }
+                                            }
+                                            catch
+                                            {
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div><!--/porlets-content-->
+                        </div><!--/block-web-->
+                    </div><!--/col-md-12-->
+                </div><!--/row-->
+
+                <br /><br />
+                @if (GblnCargarTabla)
+                {
+                    <div class="center text-center"><h2 class="h2">Miembros del Proyecto</h2></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="block-web">
+                                <div class="header">
+                                    <div class="actions">
+                                        <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
+                                    </div>
+                                </div>
+                                <div class="porlets-content">
+                                    <div class="adv-table editable-table ">
+                                        <div class="margin-top-10"></div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="dataTables_length" id="editable-sample_length">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
+                                            <thead>
+                                                <tr>
+                                                    <th>Proyecto</th>
+                                                    <th>Jefe de Proyecto</th>
+                                                    <th>Miembros del Proyecto</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="">
+                                                    <td>@GobjProyecto.PRYnombre</td>
+                                                    <td>@GobjProyecto.USUapellido.ToUpper(), @GobjProyecto.USUnombre</td>
+                                                    <td>
+                                                        @foreach (var LobjRegistro in GobjListarMiembros)
+                                                        {
+                                                            if (LobjRegistro.USUnivel.Contains("Miembro"))
+                                                            {
+                                                                <text>@LobjRegistro.USUapellido.ToUpper(), @LobjRegistro.USUnombre <br /></text>
+                                                            }
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div><!--/porlets-content-->
+                            </div><!--/block-web-->
+                        </div><!--/col-md-12-->
+                    </div><!--/row-->
+                    <br /><br /><br />
+                    <div class="center text-center"><h2 class="h2">Proyecto</h2></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block-web">
+                            <div class="header">
+                                <div class="actions">
+                                    <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
+                                </div>
+                            </div>
+                            <div class="porlets-content">
+                                <div class="adv-table editable-table ">
+                                    <div class="margin-top-10"></div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="dataTables_length" id="editable-sample_length">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
+                                        <thead>
+                                            <tr>
+                                                <th>Fase</th>
+                                                <th>Fecha Inicio Fase</th>
+                                                <th>Fecha Fin Fase</th>
+                                                <th>Entregable</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @try
+                                            {
+                                                int LintContador = 0;
+                                                bool LblnFlag = false;
+                                                int LintCodigo = 0;
+                                                string LstrFechaInicio = "";
+                                                string LstrFechaFin = "";
+                                                foreach (var LobjFase in GobjListarFase)
+                                                {
+                                                    foreach (var LobjRegistro in GobjListarDatos)
+                                                    {
+                                                        foreach (var LobjRegistroRelacion in GobjListarDatosRelacion)
+                                                        {
+                                                            if (LobjRegistroRelacion.MNTcodigo == LobjRegistro.MNTcodigo)
+                                                            {
+                                                                LblnFlag = true;
+                                                                LintCodigo = Convert.ToInt32(LobjRegistroRelacion.MNTcodigo);
+                                                                LstrFechaInicio = Convert.ToDateTime(LobjRegistroRelacion.PYEfecha_InicioFase).ToString("yyyy-MM-dd");
+                                                                LstrFechaFin = Convert.ToDateTime(LobjRegistroRelacion.PYEfecha_FinFase).ToString("yyyy-MM-dd");
+                                                                break;
+                                                            }
+                                                        }
+
+                                                        if (LblnFlag)
+                                                        {
+                                                            if (LobjFase.MEFcodigo == LobjRegistro.MEFcodigo)
+                                                            {
+                                                                if (LintContador == 0)
+                                                                {
+                                                                    if (LintCodigo == LobjRegistro.MNTcodigo)
+                                                                    {
+                                                                        <tr class="">
+                                                                            <td>@LobjFase.MEFnombre</td>
+                                                                            <td>@LstrFechaInicio</td>
+                                                                            <td>@LstrFechaFin</td>
+                                                                            <td>@LobjRegistro.MNTnombre</td>
+                                                                        </tr>
+                                                                    }
+                                                                    LintContador++;
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (LintCodigo == LobjRegistro.MNTcodigo)
+                                                                    {
+                                                                        <tr class="">
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td>@LobjRegistro.MNTnombre</td>
+                                                                        </tr>
+                                                                    }
+                                                                }
+
+                                                            }
+                                                        }
+                                                        LblnFlag = false;
+                                                    }
+                                                    LintContador = 0;
+                                                }
+                                            }
+                                            catch
+                                            {
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div><!--/porlets-content-->
+                        </div><!--/block-web-->
+                    </div><!--/col-md-12-->
+                </div><!--/row-->
+                }
+            </div>
+        </div>
+    </div>
+</div>

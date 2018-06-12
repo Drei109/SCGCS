@@ -1,0 +1,317 @@
+
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (1
+           ,'sfase1'
+           ,'2013-11-11'
+           ,'Activo')
+GO
+
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (1
+           ,'sfase2'
+           ,'2014-11-11'
+           ,'Activo')
+GO
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (1
+           ,'sfase3'
+           ,'2015-11-11'
+           ,'Activo')
+GO
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (1
+           ,'sfase4'
+           ,'2016-11-11'
+           ,'Inactivo')
+GO
+
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (2
+           ,'afase1'
+           ,'2013-11-11'
+           ,'Activo')
+GO
+
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (2
+           ,'afase2'
+           ,'2014-11-11'
+           ,'Activo')
+GO
+
+INSERT INTO [dbo].[cnfMEFpMetodologiaFase]
+           ([MTDcodigo]
+           ,[MEFnombre]
+           ,[MEFfecha_Registro]
+           ,[MEFestado])
+     VALUES
+           (2
+           ,'afase3'
+           ,'2014-11-11'
+           ,'Inactivo')
+GO	
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (1
+           ,'sf1entregable'
+           ,'fase de spruebas'
+           ,'2011-11-1'
+           ,'sf1'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (1
+           ,'sf1entregable'
+           ,'fase de spruebas'
+           ,'2011-11-1'
+           ,'sf1'
+           ,'Activo')
+GO
+
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (1
+           ,'sf1entregable'
+           ,'fase de spruebas'
+           ,'2011-11-1'
+           ,'sf1'
+           ,'Activo')
+GO
+
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (1
+           ,'sf1entregable2'
+           ,'fase de spruebas'
+           ,'2011-11-1'
+           ,'sf2'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (1
+           ,'sf1entregable3'
+           ,'fase de spruebas'
+           ,'2011-11-1'
+           ,'sf3'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (2
+           ,'sf2entregable1'
+           ,'fase de spruebas'
+           ,'2011-11-1'
+           ,'sf1'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (2
+           ,'sf2entregable2'
+           ,'fase de spruebas'
+           ,'2012-11-1'
+           ,'sf2'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (2
+           ,'sf2entregable3'
+           ,'fase de spruebas'
+           ,'2013-11-1'
+           ,'sf3'
+           ,'Inactivo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfMNTpMetodologiaEntregable]
+           ([MEFcodigo]
+           ,[MNTnombre]
+           ,[MNTdescripcion]
+           ,[MNTfecha_Registro]
+           ,[MNTnomenclatura]
+           ,[MNTestado])
+     VALUES
+           (2
+           ,'sf2entregable4'
+           ,'fase de spruebas'
+           ,'2014-11-1'
+           ,'sf4'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfUSUpUsuario]
+           ([USUdni]
+           ,[USUnombre]
+           ,[USUapellido]
+           ,[USUcorreo]
+           ,[USUtelefono]
+           ,[USUusuario]
+           ,[USUcontrasena]
+           ,[USUnivel]
+           ,[USUestado])
+     VALUES
+           ('71444451'
+           ,'Patricio'
+           ,'Parodi'
+           ,'pparodi@mail.com'
+           ,'955441144'
+           ,'pparodi'
+           ,'123'
+           ,'Miembro'
+           ,'Activo')
+GO
+
+USE [cnfConfiguracion]
+GO
+
+INSERT INTO [dbo].[cnfUSUpUsuario]
+           ([USUdni]
+           ,[USUnombre]
+           ,[USUapellido]
+           ,[USUcorreo]
+           ,[USUtelefono]
+           ,[USUusuario]
+           ,[USUcontrasena]
+           ,[USUnivel]
+           ,[USUestado])
+     VALUES
+           ('71444451'
+           ,'Patrick'
+           ,'Star'
+           ,'pstar@mail.com'
+           ,'95544155'
+           ,'pstar'
+           ,'123'
+           ,'Miembro'
+           ,'Activo')
+GO

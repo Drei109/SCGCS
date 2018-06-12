@@ -1,0 +1,407 @@
+﻿@model cnfPrySGCS.Models.cnfPMIpProyectoMiembro
+@{
+    List<cnfPrySGCS.Models.cnfPRYpProyecto> GobjListarProyecto = ViewBag.GobjListarProyecto;
+    List<cnfPrySGCS.Models.cnfPMCpProyectoMiembroCargo> GobjListarCargoMiembro = ViewBag.GobjListarCargoMiembro;
+    List<cnfPrySGCS.Models.cnfPMIpProyectoMiembro> GobjListarDatos = ViewBag.GobjListarDatos;
+    List<cnfPrySGCS.Models.cnfUSUpUsuario> GobjListarUsuario = ViewBag.GobjListarUsuario;
+    bool GblnCargarTabla = ViewBag.GblnCargarTabla;
+    bool LblnMensaje = false;
+    try
+    {
+        LblnMensaje = ViewBag.GblnMensaje;
+    }
+    catch
+    {
+
+    }
+}
+
+@try
+{
+    if (LblnMensaje)
+    {
+        string LstrMensaje = ViewBag.GstrMensajeRespuesta;
+
+        if (LstrMensaje.Equals("La Operación se Realizó Correctamente"))
+        {
+            <script>
+                    alert('La Operación se Realizó Correctamente');
+            </script>
+        }
+        else
+        {
+            <script>
+                    alert('Ocurrió un Fallo en la Operación');
+            </script>
+        }
+    }
+}
+catch
+{
+
+}
+
+<script type="text/javascript">
+(function(document) {
+  'use strict';
+
+  var LightTableFilter = (function(Arr) {
+
+    var _input;
+
+    function _onInputEvent(e) {
+      _input = e.target;
+      var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+      Arr.forEach.call(tables, function(table) {
+        Arr.forEach.call(table.tBodies, function(tbody) {
+          Arr.forEach.call(tbody.rows, _filter);
+        });
+      });
+    }
+
+    function _filter(row) {
+      var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+      row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+    }
+
+    return {
+      init: function() {
+        var inputs = document.getElementsByClassName('txtBuscar');
+        Arr.forEach.call(inputs, function(input) {
+          input.oninput = _onInputEvent;
+        });
+      }
+    };
+  })(Array.prototype);
+
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'complete') {
+      LightTableFilter.init();
+    }
+  });
+
+})(document);
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block-web">
+            <div class="header">
+                <div class="actions"> <a class="minimize" href="~/Content/ultimo_admin/admin/#"><i class="fa fa-chevron-down"></i></a></div>
+                <a href="~/cnfProyecto/cnfClsProyectoMiembro/cnfFrmProyectoMiembroVista"><h3 class="content-header">Miembro del Proyecto</h3></a>
+            </div>
+            <div class="porlets-content">
+
+                @using (Html.BeginForm("mtdCargarTablaMiembro", "cnfClsProyectoMiembro", FormMethod.Post, new { id = "FrmProyectoMiembro", @name = "FrmProyectoMiembro", @class = "form-horizontal row-border" }))
+                {
+                    <div class="form-group">
+                        <label name="lblEntregableProyecto" class="col-sm-3 control-label">Proyecto</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="ddlProyecto" id="ddlProyecto">
+                                @foreach (var LobjRegistro in GobjListarProyecto)
+                                {
+                                    try
+                                    {
+                                        if (LobjRegistro.PRYcodigo == Convert.ToInt32(Session["GintCodigoProyecto"]))
+                                        {
+                                            <option selected value="@LobjRegistro.PRYcodigo">@LobjRegistro.PRYnombre</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@LobjRegistro.PRYcodigo">@LobjRegistro.PRYnombre</option>
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        <option value="@LobjRegistro.PRYcodigo">@LobjRegistro.PRYnombre</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div><!--/form-group-->
+                    <br /><br />
+                    <div class="form-group">
+                        <div class="text-left">
+                            <button type="submit" class="btn btn-primary">Miembros de Proyecto</button>
+                        </div>
+                    </div><!--/form-group-->
+                    try
+                    {
+                        Session["GblnMensaje"] = false;
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
+                @using (Html.BeginForm("mtdGuardar", "cnfClsProyectoMiembro", FormMethod.Post, new { id = "FrmProyectoMiembro", @name = "FrmProyectoMiembro", @class = "form-horizontal row-border" }))
+                {
+                    if (GblnCargarTabla)
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="block-web">
+                                    <div class="header">
+                                        <div class="actions">
+                                            <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="porlets-content">
+                                        <div class="adv-table editable-table ">
+                                            <div class="margin-top-10"></div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="dataTables_length" id="editable-sample_length">
+                                                    </div>
+                                                </div><div class="col-lg-12"><label>Buscar: <input class="txtBuscar form-control" aria-controls="editable-sample" data-table="order-table" type="search" placeholder="Buscar por Nombre..." /></label></div>
+                                            </div>
+                                            <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Código</th>
+                                                        <th>Nombres y Apellidos</th>
+                                                        <th>Cargo</th>
+                                                        <th>Estado</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @try
+                                                    {
+                                                        bool LblnFlag = false;
+                                                        int LintContador = 0;
+                                                        int LintCont = 0;
+                                                        cnfPrySGCS.Models.cnfPMIpProyectoMiembro LobjProyectoMiembro = new cnfPrySGCS.Models.cnfPMIpProyectoMiembro();
+                                                        foreach (var LobjRegistro in GobjListarUsuario)
+                                                        {
+                                                            foreach (var LobjReg in GobjListarDatos)
+                                                            {
+                                                                if (LobjReg.USUcodigo == LobjRegistro.USUcodigo)
+                                                                {
+                                                                    LobjProyectoMiembro = LobjReg;
+                                                                    LblnFlag = true;
+                                                                    break;
+                                                                }
+                                                            }
+                                                            if (LblnFlag)
+                                                            {
+                                                                <tr class="">
+                                                                    <td>@LobjRegistro.USUcodigo</td>
+                                                                    <td>@LobjRegistro.USUnombre @LobjRegistro.USUapellido</td>
+                                                                    <td>
+                                                                        @for (int i = LintContador; i < GobjListarCargoMiembro.Count(); i++)
+                                                                        {
+                                                                            <select name="PMCcargo">
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Analista"))
+                                                                                {
+                                                                                    <option selected>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Programador"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option selected>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Diseñador"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option selected>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Arquitecto"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option selected>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Analista Experto"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option selected>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Programador Experto"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option selected>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Diseñador Experto"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option selected>Diseñador Experto</option>
+                                                                                    <option>Arquitecto Experto</option>
+                                                                                }
+                                                                                @if (GobjListarCargoMiembro[LintContador].PMCcargo.Equals("Arquitecto Experto"))
+                                                                                {
+                                                                                    <option>Analista</option>
+                                                                                    <option>Programador</option>
+                                                                                    <option>Diseñador</option>
+                                                                                    <option>Arquitecto</option>
+                                                                                    <option>Analista Experto</option>
+                                                                                    <option>Programador Experto</option>
+                                                                                    <option>Diseñador Experto</option>
+                                                                                    <option selected>Arquitecto Experto</option>
+                                                                                }
+                                                                            </select><br />
+                                                                            try
+                                                                            {
+                                                                                if (LintCont == 2)
+                                                                                {
+                                                                                    LintCont = 0;
+                                                                                    LintContador++;
+                                                                                    break;
+                                                                                }
+                                                                                LintContador++;
+                                                                                LintCont++;
+                                                                            }
+                                                                            catch
+                                                                            {
+
+                                                                            }
+                                                                        }
+                                                                    </td>                                                            
+                                                                    <td>
+                                                                        <select name="PMIestado">
+                                                                            @if (LobjProyectoMiembro.PMIestado.Equals("Activo"))
+                                                                            {
+                                                                                <option selected>Activo</option>
+                                                                                <option>Inactivo</option>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <option>Activo</option>
+                                                                                <option selected>Inactivo</option>
+                                                                            }
+                                                                        </select>
+                                                                    </td>
+                                                                    <td><input type="checkbox" checked class="form-control" name="LstrRegistro" value="@LobjRegistro.USUcodigo" /></td>
+                                                                </tr>
+                                                                try
+                                                                {
+                                                                    LblnFlag = false;
+                                                                }
+                                                                catch
+                                                                {
+
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <tr class="">
+                                                                    <td>@LobjRegistro.USUcodigo</td>
+                                                                    <td>@LobjRegistro.USUnombre @LobjRegistro.USUapellido</td>
+                                                                    <td>
+                                                                        <select name="PMCcargo">
+                                                                            <option>Analista</option>
+                                                                            <option>Programador</option>
+                                                                            <option>Diseñador</option>
+                                                                            <option>Arquitecto</option>
+                                                                            <option>Analista Experto</option>
+                                                                            <option>Programador Experto</option>
+                                                                            <option>Diseñador Experto</option>
+                                                                            <option>Arquitecto Experto</option>
+                                                                        </select><br />
+                                                                        <select name="PMCcargo">
+                                                                            <option>Analista</option>
+                                                                            <option>Programador</option>
+                                                                            <option>Diseñador</option>
+                                                                            <option>Arquitecto</option>
+                                                                            <option>Analista Experto</option>
+                                                                            <option>Programador Experto</option>
+                                                                            <option>Diseñador Experto</option>
+                                                                            <option>Arquitecto Experto</option>
+                                                                        </select><br />
+                                                                        <select name="PMCcargo">
+                                                                            <option>Analista</option>
+                                                                            <option>Programador</option>
+                                                                            <option>Diseñador</option>
+                                                                            <option>Arquitecto</option>
+                                                                            <option>Analista Experto</option>
+                                                                            <option>Programador Experto</option>
+                                                                            <option>Diseñador Experto</option>
+                                                                            <option>Arquitecto Experto</option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td>
+                                                                        <select name="PMIestado">
+                                                                            <option>Activo</option>
+                                                                            <option>Inactivo</option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td><input type="checkbox" class="form-control" name="LstrRegistro" value="@LobjRegistro.USUcodigo" /></td>
+                                                                </tr>
+                                                            }
+                                                        }
+                                                        try
+                                                        {
+                                                            LintContador = 0;
+                                                            LintCont = 0;
+                                                        }
+                                                        catch
+                                                        {
+
+                                                        }
+                                                    }
+                                                    catch
+                                                    {
+
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div><!--/porlets-content-->
+                                </div><!--/block-web-->
+                            </div><!--/col-md-12-->
+                        </div><!--/row-->
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                    }
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>

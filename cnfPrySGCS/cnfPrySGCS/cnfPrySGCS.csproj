@@ -1,0 +1,1146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6FBC056D-2668-4C18-9645-EF7AFD2A70E6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>cnfPrySGCS</RootNamespace>
+    <AssemblyName>cnfPrySGCS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Octokit, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.28.0\lib\net45\Octokit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Octokit.Reactive, Version=0.28.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.Reactive.0.28.0\lib\net45\Octokit.Reactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reactive.Core, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.3.1.0\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.0\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.0\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.0\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.0\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\ultimo_admin\admin\404error.html" />
+    <Content Include="Content\ultimo_admin\admin\500error.html" />
+    <Content Include="Content\ultimo_admin\admin\about.html" />
+    <Content Include="Content\ultimo_admin\admin\alert.html" />
+    <Content Include="Content\ultimo_admin\admin\animations.html" />
+    <Content Include="Content\ultimo_admin\admin\blankpage.html" />
+    <Content Include="Content\ultimo_admin\admin\buttons.html" />
+    <Content Include="Content\ultimo_admin\admin\calendar.html" />
+    <Content Include="Content\ultimo_admin\admin\compose.html" />
+    <Content Include="Content\ultimo_admin\admin\contact.html" />
+    <Content Include="Content\ultimo_admin\admin\contactlist.html" />
+    <Content Include="Content\ultimo_admin\admin\css\admin.css" />
+    <Content Include="Content\ultimo_admin\admin\css\animate.css" />
+    <Content Include="Content\ultimo_admin\admin\css\bootstrap-theme.css" />
+    <Content Include="Content\ultimo_admin\admin\css\bootstrap.min.css" />
+    <Content Include="Content\ultimo_admin\admin\css\font-awesome-animation.min.css" />
+    <Content Include="Content\ultimo_admin\admin\css\font-awesome.css" />
+    <Content Include="Content\ultimo_admin\admin\css\jquerysctipttop.css" />
+    <Content Include="Content\ultimo_admin\admin\css\select2.css" />
+    <Content Include="Content\ultimo_admin\admin\css\style-responsive.css" />
+    <Content Include="Content\ultimo_admin\admin\css\style.css" />
+    <Content Include="Content\ultimo_admin\admin\datatable.html" />
+    <Content Include="Content\ultimo_admin\admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\ultimo_admin\admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\ultimo_admin\admin\gallery.html" />
+    <Content Include="Content\ultimo_admin\admin\general.html" />
+    <Content Include="Content\ultimo_admin\admin\grid.html" />
+    <Content Include="Content\ultimo_admin\admin\help.html" />
+    <Content Include="Content\ultimo_admin\admin\icons.html" />
+    <Content Include="Content\ultimo_admin\admin\images\9ea69e92-35fd-4070-950e-ed940779f4c0.png" />
+    <Content Include="Content\ultimo_admin\admin\images\aa.png" />
+    <Content Include="Content\ultimo_admin\admin\images\ame.png" />
+    <Content Include="Content\ultimo_admin\admin\images\bb.png" />
+    <Content Include="Content\ultimo_admin\admin\images\bfdfh.png" />
+    <Content Include="Content\ultimo_admin\admin\images\cc.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-1.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-2.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-3.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-5.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-6.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-7.png" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\aa-8.png" />
+    <Content Include="Content\ultimo_admin\admin\images\dd.png" />
+    <Content Include="Content\ultimo_admin\admin\images\ee.png" />
+    <Content Include="Content\ultimo_admin\admin\images\ff.png" />
+    <Content Include="Content\ultimo_admin\admin\images\fhu.png" />
+    <Content Include="Content\ultimo_admin\admin\images\g.png" />
+    <Content Include="Content\ultimo_admin\admin\images\gfu.png" />
+    <Content Include="Content\ultimo_admin\admin\images\gg.png" />
+    <Content Include="Content\ultimo_admin\admin\images\ghk.png" />
+    <Content Include="Content\ultimo_admin\admin\images\ght.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-a.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-b-07.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-b.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-c.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-d.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-e.png" />
+    <Content Include="Content\ultimo_admin\admin\images\hd-f.png" />
+    <Content Include="Content\ultimo_admin\admin\images\images.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\in.png" />
+    <Content Include="Content\ultimo_admin\admin\images\l-image.png" />
+    <Content Include="Content\ultimo_admin\admin\images\logo-skype.png" />
+    <Content Include="Content\ultimo_admin\admin\images\logo.png" />
+    <Content Include="Content\ultimo_admin\admin\images\logo_g.png" />
+    <Content Include="Content\ultimo_admin\admin\images\m+.png" />
+    <Content Include="Content\ultimo_admin\admin\images\mas.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\aa-05.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\aa-07.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\aa-10.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\aa-12.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\aa.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\ee.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\ff.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\gg.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\hh.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\ii.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\jj.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\kk.png" />
+    <Content Include="Content\ultimo_admin\admin\images\media\ll.png" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user1.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user10.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user12.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user2.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user3.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user4.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user5.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user6.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user7.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user8.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\user9.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\pro.png" />
+    <Content Include="Content\ultimo_admin\admin\images\r-logo.png" />
+    <Content Include="Content\ultimo_admin\admin\images\s-logo.png" />
+    <Content Include="Content\ultimo_admin\admin\images\sample.png" />
+    <Content Include="Content\ultimo_admin\admin\images\ss.png" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\close.gif.png" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-1.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-10.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-11.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-12.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-13.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-14.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-15.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-16.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-17.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-18.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-19.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-2.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-20.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-21.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-22.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-23.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-24.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-3.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-4.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-5.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-6.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-7.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-8.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-full-9.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-1.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-10.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-11.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-12.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-13.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-14.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-15.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-16.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-17.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-18.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-19.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-2.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-20.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-21.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-22.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-23.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-24.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-3.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-4.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-5.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-6.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-7.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-8.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\superbox-thumb-9.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\t.png" />
+    <Content Include="Content\ultimo_admin\admin\images\team\team-1.png" />
+    <Content Include="Content\ultimo_admin\admin\images\team\team-2.png" />
+    <Content Include="Content\ultimo_admin\admin\images\team\team-3.png" />
+    <Content Include="Content\ultimo_admin\admin\images\team\team-4.png" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\blue.png" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\dark.png" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\green.png" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\light.png" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\mang.png" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\red.png" />
+    <Content Include="Content\ultimo_admin\admin\images\typograph_03.png" />
+    <Content Include="Content\ultimo_admin\admin\images\uploadfile.png" />
+    <Content Include="Content\ultimo_admin\admin\images\us-name.png" />
+    <Content Include="Content\ultimo_admin\admin\images\user.png" />
+    <Content Include="Content\ultimo_admin\admin\images\uvvrl.jpg" />
+    <Content Include="Content\ultimo_admin\admin\images\visa.png" />
+    <Content Include="Content\ultimo_admin\admin\images\want9191-1A2DMh1383387500.jpg" />
+    <Content Include="Content\ultimo_admin\admin\inbox.html" />
+    <Content Include="Content\ultimo_admin\admin\index.html" />
+    <Content Include="Content\ultimo_admin\admin\invoice.html" />
+    <Content Include="Content\ultimo_admin\admin\js\accordion.js" />
+    <Content Include="Content\ultimo_admin\admin\js\address.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\animated.js" />
+    <Content Include="Content\ultimo_admin\admin\js\bootstrap.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\common-script.js" />
+    <Content Include="Content\ultimo_admin\admin\js\edit-graph.js" />
+    <Content Include="Content\ultimo_admin\admin\js\form-components.js" />
+    <Content Include="Content\ultimo_admin\admin\js\form-wizard.js" />
+    <Content Include="Content\ultimo_admin\admin\js\graph.js" />
+    <Content Include="Content\ultimo_admin\admin\js\icheck-init.js" />
+    <Content Include="Content\ultimo_admin\admin\js\icheck.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jPushMenu.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jquery-2.1.0.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jquery-ui.custom.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jquery-ui.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jquery.nicescroll.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jquery.slimscroll.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\jquery.sparkline.js" />
+    <Content Include="Content\ultimo_admin\admin\js\moment.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\script.min..js" />
+    <Content Include="Content\ultimo_admin\admin\js\select2.min.js" />
+    <Content Include="Content\ultimo_admin\admin\js\side-chats.js" />
+    <Content Include="Content\ultimo_admin\admin\js\sparkline-chart.js" />
+    <Content Include="Content\ultimo_admin\admin\layouts.html" />
+    <Content Include="Content\ultimo_admin\admin\list.html" />
+    <Content Include="Content\ultimo_admin\admin\lockscreen.html" />
+    <Content Include="Content\ultimo_admin\admin\login.html" />
+    <Content Include="Content\ultimo_admin\admin\maps.html" />
+    <Content Include="Content\ultimo_admin\admin\media.html" />
+    <Content Include="Content\ultimo_admin\admin\multi-upload.html" />
+    <Content Include="Content\ultimo_admin\admin\notes.html" />
+    <Content Include="Content\ultimo_admin\admin\other-forms.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\css\demo_page.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\css\demo_table.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\back_disabled.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\back_enabled.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\back_enabled_hover.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\details_close.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\details_open.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\forward_disabled.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\forward_enabled.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\forward_enabled_hover.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\sort_asc.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\sort_asc_disabled.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\sort_both.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\sort_desc.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\images\sort_desc_disabled.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\advanced-datatable\js\jquery.dataTables.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-colorpicker\css\colorpicker.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-colorpicker\img\alpha.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-colorpicker\img\hue.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-colorpicker\img\saturation.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datepicker\css\datepicker.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\css\datetimepicker.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-editable\bootstrap-editable.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-editable\bootstrap-editable.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-fileupload\bootstrap-fileupload.min.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-fileupload\bootstrap-fileupload.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-timepicker\compiled\timepicker.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-timepicker\js\bootstrap-timepicker.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\calendar\external-draging-calendar.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\calendar\fullcalendar.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\calendar\fullcalendar.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\calendar\fullcalendar.print.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\chart\all-chartjs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\chart\Chart.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\aero%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\aero.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\aero.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\blue%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\blue.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\blue.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\flat%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\flat.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\flat.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\green%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\green.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\green.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\grey%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\grey.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\grey.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\orange%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\orange.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\orange.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\pink%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\pink.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\pink.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\purple%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\purple.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\purple.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\red%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\red.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\red.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\yellow%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\yellow.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\yellow.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\flat\_all.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\futurico\futurico%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\futurico\futurico.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\futurico\futurico.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\icheck.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\icheck.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\aero.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\blue.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\green.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\grey.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\line%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\line.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\line.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\orange.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\pink.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\purple.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\red.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\yellow.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\line\_all.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\aero%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\aero.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\aero.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\blue%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\blue.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\blue.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\green%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\green.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\green.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\grey%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\grey.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\grey.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\minimal%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\minimal.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\minimal.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\orange%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\orange.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\orange.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\pink%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\pink.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\pink.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\purple%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\purple.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\purple.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\red%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\red.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\red.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\yellow%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\yellow.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\yellow.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\minimal\_all.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\polaris\polaris%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\polaris\polaris.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\polaris\polaris.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\aero%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\aero.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\aero.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\blue%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\blue.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\blue.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\green%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\green.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\green.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\grey%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\grey.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\grey.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\orange%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\orange.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\orange.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\pink%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\pink.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\pink.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\purple%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\purple.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\purple.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\red%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\red.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\red.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\square%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\square.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\square.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\yellow%402x.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\yellow.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\yellow.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\square\_all.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\checkbox\zepto.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\build-config.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\ckeditor.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\config.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\contents.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\af.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ar.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\bg.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\bn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\bs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ca.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\cs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\cy.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\da.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\de.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\el.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\en-au.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\en-ca.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\en-gb.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\en.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\eo.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\es.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\et.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\eu.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\fa.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\fi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\fo.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\fr-ca.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\fr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\gl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\gu.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\he.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\hi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\hr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\hu.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\is.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\it.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ja.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ka.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\km.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ko.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ku.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\lt.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\lv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\mk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\mn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ms.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\nb.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\nl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\no.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\pl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\pt-br.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\pt.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ro.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ru.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\sk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\sl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\sr-latn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\sr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\sv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\th.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\tr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\ug.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\uk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\vi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\zh-cn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\lang\zh.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\icons.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\ajax.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\api.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\appendto.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\inlineall\logo.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\sample.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\sample.jpg" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\uilanguages\languages.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\divreplace.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\index.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\inlineall.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\inlinebycode.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\dialog\assets\my_dialog.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\dialog\dialog.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\enterkey\enterkey.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\outputforflash.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\outputhtml.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\magicline\magicline.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\toolbar\toolbar.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\wysiwygarea\fullpage.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\readonly.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\replacebyclass.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\replacebycode.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\sample.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\sample.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\tabindex.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\uicolor.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\uilanguages.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\xhtmlstyle.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\dialog.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\dialog_ie.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\dialog_ie7.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\dialog_ie8.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\dialog_opera.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\editor.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\editor_gecko.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\editor_ie.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\editor_ie7.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\editor_ie8.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\editor_iequirks.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\icons.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\images\arrow.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\images\close.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\images\mini.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\styles.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\DT_bootstrap.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\DT_bootstrap.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\dynamic_table_init.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\images\sort_asc.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\images\sort_both.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\images\sort_desc.png" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\jquery.dataTables.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\demo-slider\demo-slider.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\dropzone\dropzone.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\dropzone\dropzone.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\edit-table\edit-table.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\cors\postmessage.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\cors\result.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\blueimp-gallery.min.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\demo-ie8.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\demo.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\jquery.fileupload-noscript.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\jquery.fileupload.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\css\style.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\img\loading.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\img\progressbar.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\app.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\canvas-to-blob.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.blueimp-gallery.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-angular.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-image.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-process.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload-video.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.fileupload.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\jquery.iframe-transport.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\load-image.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\main.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\tmpl.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-go\static\favicon.ico" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-go\static\robots.txt" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-python\static\favicon.ico" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-python\static\robots.txt" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\node\.gitignore" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\node\public\files\.gitignore" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\node\public\files\thumbnail\.gitignore" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\node\server.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\node\tmp\.gitignore" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\php\files\.gitignore" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\test\index.html" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\test\test.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\gallery\superbox.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\input-mask\demo-mask.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\input-mask\jquery.inputmask.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\edit-jqplot.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.barRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.canvasAxisTickRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.categoryAxisRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.cursor.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.dateAxisRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.highlighter.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.logAxisRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.pieRenderer.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jqplot.pointLabels.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\jqplot\jquery.jqplot.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\kalendar\edit-kalendar.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\kalendar\kalendar.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\kalendar\kalendar.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\knob\jquery.knob.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\map\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\map\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\map\jquery-jvectormap-in-merc-en.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\map\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\map\map-edit.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\mockjax\jquery.mockjax.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\morris\morris-script.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\morris\morris.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\morris\morris.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\morris\raphael-min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\scroll\jquery.nanoscroller.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\scroll\nanoscroller.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\sparkline\easy-pie-chart.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\sparkline\jquery.customSelect.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\sparkline\jquery.sparkline.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\sparkline\sparkline-chart.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\toggle-switch\toggles.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\toggle-switch\toggles.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\demo.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\ajax-loader.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\file.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\folder-closed.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\folder.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\minus.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\plus.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-black-line.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-black.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-default-line.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-default.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-famfamfam-line.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-famfamfam.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-gray-line.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-gray.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-red-line.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\images\treeview-red.gif" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\jquery.cookie.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\jquery.treeview.css" />
+    <Content Include="Content\ultimo_admin\admin\plugins\tree-view\jquery.treeview.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\typeahead\typeahead.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\typeahead\typeaheadjs.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\validation\parsley.min.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\x-editable\form-x-editable-demo.js" />
+    <Content Include="Content\ultimo_admin\admin\plugins\x-editable\form-x-editable.js" />
+    <Content Include="Content\ultimo_admin\admin\portlets.html" />
+    <Content Include="Content\ultimo_admin\admin\profile.html" />
+    <Content Include="Content\ultimo_admin\admin\readmail.html" />
+    <Content Include="Content\ultimo_admin\admin\registration.html" />
+    <Content Include="Content\ultimo_admin\admin\search.html" />
+    <Content Include="Content\ultimo_admin\admin\settings.html" />
+    <Content Include="Content\ultimo_admin\admin\statictable.html" />
+    <Content Include="Content\ultimo_admin\admin\tabs.html" />
+    <Content Include="Content\ultimo_admin\admin\task.html" />
+    <Content Include="Content\ultimo_admin\admin\themelock.txt" />
+    <Content Include="Content\ultimo_admin\admin\themes.html" />
+    <Content Include="Content\ultimo_admin\admin\ticket.html" />
+    <Content Include="Content\ultimo_admin\admin\ticketopen.html" />
+    <Content Include="Content\ultimo_admin\admin\timeline.html" />
+    <Content Include="Content\ultimo_admin\admin\todo.html" />
+    <Content Include="Content\ultimo_admin\admin\tree.html" />
+    <Content Include="Content\ultimo_admin\admin\typography.html" />
+    <Content Include="Content\ultimo_admin\admin\validation.html" />
+    <Content Include="Content\ultimo_admin\admin\widgets.html" />
+    <Content Include="Content\ultimo_admin\Documentation\css\custom.css" />
+    <Content Include="Content\ultimo_admin\Documentation\css\documenter_style.css" />
+    <Content Include="Content\ultimo_admin\Documentation\css\img\info.png" />
+    <Content Include="Content\ultimo_admin\Documentation\css\img\pre_bg.png" />
+    <Content Include="Content\ultimo_admin\Documentation\css\img\warning.png" />
+    <Content Include="Content\ultimo_admin\Documentation\images\logo.png" />
+    <Content Include="Content\ultimo_admin\Documentation\index.html" />
+    <Content Include="Content\ultimo_admin\Documentation\js\jquery.1.6.4.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\jquery.easing.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\jquery.scrollTo-1.4.2-min.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-apollo.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-clj.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-css.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-go.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-hs.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-lisp.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-lua.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-ml.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-n.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-proto.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-scala.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-sql.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-tex.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-vb.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-vhdl.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-wiki.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-xq.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\lang-yaml.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\prettify.css" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\prettify.js" />
+    <Content Include="Content\ultimo_admin\Documentation\js\prettify\themes\theme-balupton.css" />
+    <Content Include="Content\ultimo_admin\Documentation\js\script.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\logo.png" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Content\ultimo_admin\admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\ultimo_admin\admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\ultimo_admin\admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\ultimo_admin\admin\fonts\FontAwesome.otf" />
+    <Content Include="Content\ultimo_admin\admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\ultimo_admin\admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\ultimo_admin\admin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\ultimo_admin\admin\images\contact people\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\images\media\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\images\photos\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\images\superbox\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\images\team\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\images\theme\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\images\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\a11yhelp\dialogs\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\about\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\clipboard\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\fakeobjects\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\image\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\link\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\magicline\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\pastefromword\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\scayt\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\specialchar\dialogs\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\tabletools\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\table\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\assets\posteddata.php" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\dialog\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\assets\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\samples\sample_posteddata.php" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\.DS_Store" />
+    <Content Include="Content\ultimo_admin\admin\plugins\ckeditor\skins\moono\readme.md" />
+    <Content Include="Content\ultimo_admin\admin\plugins\data-tables\images\Thumbs.db" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-go\app.yaml" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-go\app\main.go" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-python\app.yaml" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\gae-python\main.py" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\node\package.json" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\php\files\.htaccess" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\php\index.php" />
+    <Content Include="Content\ultimo_admin\admin\plugins\file-uploader\server\php\UploadHandler.php" />
+    <Content Include="Content\ultimo_admin\admin\themelock.url" />
+    <Content Include="Areas\cnfMantenimiento\Views\web.config" />
+    <Content Include="Areas\cnfMantenimiento\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\cnfMantenimiento\Views\cnfClsMetodologia\cnfFrmMetodologiaVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\web.config" />
+    <Content Include="Areas\cnfSeguridad\Views\web.config" />
+    <Content Include="Areas\cnfCambios\Views\web.config" />
+    <Content Include="Areas\cnfMantenimiento\Views\cnfClsFase\cnfFrmFaseVista.cshtml" />
+    <Content Include="Areas\cnfMantenimiento\Views\cnfClsEntregable\cnfFrmEntregableVista.cshtml" />
+    <Content Include="Areas\cnfMantenimiento\Views\cnfClsEntregable\cnfFrmEntregableRelacionVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\web.config" />
+    <Content Include="Areas\cnfProyecto\_ViewStart.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsProyecto\cnfFrmProyectoVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsProyectoEntregable\cnfFrmProyectoEntregableVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsProyectoLineaBase\cnfFrmProyectoLineaBaseVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsProyectoElementoConfiguracion\cnfFrmProyectoElementoConfiguracionVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsProyectoElementoConfiguracion\cnfFrmProyectoElementoConfiguracionRelacionVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsProyectoMiembro\cnfFrmProyectoMiembroVista.cshtml" />
+    <Content Include="Areas\cnfMantenimiento\Views\cnfClsUsuario\cnfFrmUsuarioVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsVisualizarProyecto\cnfFrmVisualizarProyectoVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\cnfSeguridad\Views\cnfClsSeguridad\cnfFrmSeguridadVista.cshtml" />
+    <Content Include="Areas\cnfMantenimiento\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\cnfFrmEntregaEvaluador.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\cnfFrmEntregaResponsable.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\cnfFrmEntregaVista.cshtml" />
+    <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\View.cshtml" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.anexgrid.js" />
+    <Content Include="scripts\jquery.anexgrid.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\cnfCambios\cnfCambiosAreaRegistration.cs" />
+    <Compile Include="Areas\cnfMantenimiento\cnfMantenimientoAreaRegistration.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Controllers\cnfClsEntregableController.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Controllers\cnfClsFaseController.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Controllers\cnfClsMetodologiaController.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Controllers\cnfClsUsuarioController.cs" />
+    <Compile Include="Areas\cnfProyecto\cnfProyectoAreaRegistration.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsEntregaController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsEntregaEntregableController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsProyectoController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsProyectoElementoConfiguracionController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsProyectoEntregableController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsProyectoLineaBaseController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsProyectoMiembroController.cs" />
+    <Compile Include="Areas\cnfProyecto\Controllers\cnfClsVisualizarProyectoController.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfEEMpEntregaEntregableMiembro.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfEMEpEntregableMiembroEntregable.cs" />
+    <Compile Include="Areas\cnfSeguridad\cnfSeguridadAreaRegistration.cs" />
+    <Compile Include="Areas\cnfSeguridad\Controllers\cnfClsSeguridadController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\cnfMantenimiento\Models\cnfEREpEntregableRelacion.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Models\cnfMEFpMetodologiaFase.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Models\cnfMNTpMetodologiaEntregable.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Models\cnfMTDpMetodologia.cs" />
+    <Compile Include="Models\cnfModelo.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPECpProyectoElementoConfiguracion.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPERpProyectoElementoRelacion.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPLBpProyectoLineaBase.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPMCpProyectoMiembroCargo.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPMIpProyectoMiembro.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPRYpProyecto.cs" />
+    <Compile Include="Areas\cnfProyecto\Models\cnfPYEpProyectoEntregable.cs" />
+    <Compile Include="Models\cnfSCCpSolicitudComiteCambio.cs" />
+    <Compile Include="Models\cnfSEVpSolicitudEvaluador.cs" />
+    <Compile Include="Models\cnfSIApSolicitudInformeAprobacion.cs" />
+    <Compile Include="Models\cnfSICpSolicitudInformeCambio.cs" />
+    <Compile Include="Models\cnfSMCpSolicitudMiembroCambio.cs" />
+    <Compile Include="Models\cnfSOLpSolicitud.cs" />
+    <Compile Include="Areas\cnfMantenimiento\Models\cnfUSUpUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\cnfCambios\Controllers\" />
+    <Folder Include="Areas\cnfCambios\Models\" />
+    <Folder Include="Areas\cnfCambios\Views\Shared\" />
+    <Folder Include="Areas\cnfSeguridad\Models\" />
+    <Folder Include="Areas\cnfSeguridad\Views\Shared\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>48829</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48829/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
