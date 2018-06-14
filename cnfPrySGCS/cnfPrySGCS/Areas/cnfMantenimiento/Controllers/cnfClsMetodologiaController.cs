@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using cnfPrySGCS.Models;
 
+// 
+
 namespace cnfPrySGCS.Areas.cnfMantenimiento.Controllers
 {
     public class cnfClsMetodologiaController : Controller
@@ -25,7 +27,7 @@ namespace cnfPrySGCS.Areas.cnfMantenimiento.Controllers
             {
 
             }
-
+            
             ViewBag.GobjListarMetodologia = mtdCargarDatos();
             Session["GblnMensaje"] = false;
             Session["GstrMensajeRespuesta"] = "";
@@ -49,7 +51,7 @@ namespace cnfPrySGCS.Areas.cnfMantenimiento.Controllers
             string LstrMensajeRespuesta = "";
 
             if (ModelState.IsValid)
-            {
+            { 
                 if(PobjMetodologiaModelo.MTDcodigo == 0)
                 {
                     LstrMensajeRespuesta = PobjMetodologiaModelo.mtdGuardar(PobjMetodologiaModelo);

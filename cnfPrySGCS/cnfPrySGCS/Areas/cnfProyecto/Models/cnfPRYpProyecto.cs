@@ -1,16 +1,14 @@
+using System.IO;
+using System.Web;
+
 namespace cnfPrySGCS.Models
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
     using System.Linq;
-    using Octokit.Reactive;
-    using Octokit;
-    using System.Threading;
-    using System.Web;
-    using System.Threading.Tasks;
+    
 
     [Table("cnfPRYpProyecto")]
     public partial class cnfPRYpProyecto
@@ -117,6 +115,7 @@ namespace cnfPrySGCS.Models
                     if (LobjProyecto.PRYcodigo == 0)
                     {
                         LintMensajeRespuesta = LobjContexto.Database.ExecuteSqlCommand("exec usp_I_cnfPRYpProyecto_Guardar " + "'" + LobjProyecto.MTDcodigo + "', '" + LobjProyecto.USUcodigo + "', '" + LobjProyecto.PRYnombre + "', '" + LobjProyecto.PRYdescripcion + "', '" + LstrFechaActual + "', '" + LobjProyecto.PRYestado + "';");
+                        Directory.CreateDirectory(HttpContext.Current.Server.MapPath($"~/Uploads/{LobjProyecto.PRYnombre}"));
                     }
                 }
             }

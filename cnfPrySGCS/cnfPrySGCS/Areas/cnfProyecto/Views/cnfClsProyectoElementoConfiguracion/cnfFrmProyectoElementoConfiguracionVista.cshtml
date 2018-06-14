@@ -121,7 +121,7 @@ catch
             </div>
             <div class="porlets-content">
 
-                @using (Html.BeginForm("mtdGuardarPrincipal", "cnfClsProyectoElementoConfiguracion", FormMethod.Post, new { id = "frmElementoConfiguracion", @name = "frmElementoConfiguracion", @class = "form-horizontal row-border" }))
+                @using (Html.BeginForm("mtdGuardarPrincipal", "cnfClsProyectoElementoConfiguracion", FormMethod.Post, new { id = "frmElementoConfiguracion", @name = "frmElementoConfiguracion", @class = "form-horizontal row-border", @enctype = "multipart/form-data" }))
                 {
                     @Html.HiddenFor(x => x.PECcodigo)
 
@@ -205,22 +205,22 @@ catch
                                             {
                                                 if (LintFaseSeleccionada == LobjRegistro.MEFcodigo)
                                                 {
-                                                <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
+                                                    <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
                                                 }
                                                 else
                                                 {
-                                                <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
+                                                    <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
                                                 }
                                             }
                                             else
                                             {
                                                 if (LintFaseSeleccionada == LobjRegistro.MEFcodigo)
                                                 {
-                                                <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
+                                                    <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
                                                 }
                                                 else
                                                 {
-                                                <option value="@LobjRegistro.MEFcodigo">@LobjRegistro.MEFnombre</option>
+                                                    <option value="@LobjRegistro.MEFcodigo">@LobjRegistro.MEFnombre</option>
                                                 }
                                             }
                                         }
@@ -238,11 +238,11 @@ catch
                                         {
                                             if (LintFaseSeleccionada == LobjRegistro.MEFcodigo)
                                             {
-                                            <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
+                                                <option value="@LobjRegistro.MEFcodigo" selected>@LobjRegistro.MEFnombre</option>
                                             }
                                             else
                                             {
-                                            <option value="@LobjRegistro.MEFcodigo">@LobjRegistro.MEFnombre</option>
+                                                <option value="@LobjRegistro.MEFcodigo">@LobjRegistro.MEFnombre</option>
                                             }
                                         }
                                     }
@@ -312,11 +312,11 @@ catch
                                                 {
                                                     if (Model.MNTcodigo == LobjRegistro.MNTcodigo)
                                                     {
-                                                    <option value="@LobjRegistro.MNTcodigo" selected>@LobjRegistro.MNTnombre</option>
+                                                        <option value="@LobjRegistro.MNTcodigo" selected>@LobjRegistro.MNTnombre</option>
                                                     }
                                                     else
                                                     {
-                                                    <option value="@LobjRegistro.MNTcodigo">@LobjRegistro.MNTnombre</option>
+                                                        <option value="@LobjRegistro.MNTcodigo">@LobjRegistro.MNTnombre</option>
                                                     }
                                                 }
                                             }
@@ -348,77 +348,77 @@ catch
                             </div>
                         </div><!--/form-group-->
 
-@try
-{
-    var LstrNombreFase = "";
-    var LstrNombreProyecto = "";
+                        @try
+                        {
+                            var LstrNombreFase = "";
+                            var LstrNombreProyecto = "";
 
-    if (Model.PEClocalizacion != null)
-    {
-        <div class="form-group">
-            <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
-            <div class="col-sm-9">
-                @Html.TextBoxFor(x => x.PEClocalizacion, new { @class = "form-control", @required = "true", @disabled = "true", @pattern = "[A-Za-z ]+", @form = "frmElementoConfiguracion" })
-                <input type="hidden" name="PEClocalizacion" value="@Model.PEClocalizacion" />
-            </div>
-        </div><!--/form-group-->
-    }
-    else
-    {
-        if (GobjListarFase != null)
-        {
-            foreach (var LobjRegistro in GobjListarFase)
-            {
-                if (LobjRegistro.MEFcodigo == LintFaseSeleccionada)
-                {
-                    LstrNombreFase = LobjRegistro.MEFnombre;
-                    break;
-                }
-            }
-        }
+                            if (Model.PEClocalizacion != null)
+                            {
+                                <div class="form-group">
+                                    <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
+                                    <div class="col-sm-9">
+                                        @Html.TextBoxFor(x => x.PEClocalizacion, new { @class = "form-control", @required = "true", @disabled = "true", @pattern = "[A-Za-z ]+", @form = "frmElementoConfiguracion" })
+                                        <input type="hidden" name="PEClocalizacion" value="@Model.PEClocalizacion" />
+                                    </div>
+                                </div><!--/form-group-->
+                            }
+                            else
+                            {
+                                if (GobjListarFase != null)
+                                {
+                                    foreach (var LobjRegistro in GobjListarFase)
+                                    {
+                                        if (LobjRegistro.MEFcodigo == LintFaseSeleccionada)
+                                        {
+                                            LstrNombreFase = LobjRegistro.MEFnombre;
+                                            break;
+                                        }
+                                    }
+                                }
 
-        if (GobjListarProyecto != null)
-        {
-            foreach (var LobjRegistro in GobjListarProyecto)
-            {
-                if (LobjRegistro.PRYcodigo == LintProyectoSeleccionado)
-                {
-                    LstrNombreProyecto = LobjRegistro.PRYnombre;
-                    break;
-                }
-            }
-        }
+                                if (GobjListarProyecto != null)
+                                {
+                                    foreach (var LobjRegistro in GobjListarProyecto)
+                                    {
+                                        if (LobjRegistro.PRYcodigo == LintProyectoSeleccionado)
+                                        {
+                                            LstrNombreProyecto = LobjRegistro.PRYnombre;
+                                            break;
+                                        }
+                                    }
+                                }
 
-        if (LstrNombreFase != "" && LstrNombreFase != "")
-        {
-            <div class="form-group">
-                <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
-                <div class="col-sm-9">
-                    <input type="text" disabled class="form-control" required pattern="[A-Za-z ]+" name="PEClocalizacion" form="frmElementoConfiguracion" value="@LstrNombreProyecto/@LstrNombreFase" />
-                    <input type="hidden" value="@LstrNombreProyecto/@LstrNombreFase" name="PEClocalizacion" form="frmElementoConfiguracion" />
-                </div>
-            </div><!--/form-group-->
-        }
-        else
-        {
-            <div class="form-group">
-                <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
-                <div class="col-sm-9">
-                    @Html.TextBoxFor(x => x.PEClocalizacion, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmElementoConfiguracion" })
-                </div>
-            </div><!--/form-group-->
-        }
-    }
-}
-catch (Exception e)
-{
-    <div class="form-group">
-        <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
-        <div class="col-sm-9">
-            @Html.TextBoxFor(x => x.PEClocalizacion, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmElementoConfiguracion" })
-        </div>
-    </div><!--/form-group-->
-}
+                                if (LstrNombreFase != "" && LstrNombreFase != "")
+                                {
+                                    <div class="form-group">
+                                        <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" disabled class="form-control" required pattern="[A-Za-z ]+" name="PEClocalizacion" form="frmElementoConfiguracion" value="@LstrNombreProyecto/@LstrNombreFase" />
+                                            <input type="hidden" value="@LstrNombreProyecto/@LstrNombreFase" name="PEClocalizacion" form="frmElementoConfiguracion" />
+                                        </div>
+                                    </div><!--/form-group-->
+                                }
+                                else
+                                {
+                                    <div class="form-group">
+                                        <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(x => x.PEClocalizacion, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmElementoConfiguracion" })
+                                        </div>
+                                    </div><!--/form-group-->
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            <div class="form-group">
+                                <label name="lblLocalizacion" class="col-sm-3 control-label">Localización</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(x => x.PEClocalizacion, new { @class = "form-control", @required = "true", @pattern = "[A-Za-z ]+", @form = "frmElementoConfiguracion" })
+                                </div>
+                            </div><!--/form-group-->
+                        }
 
                         <input type="hidden" name="PEClocalizacion" value="@Model.PEClocalizacion" />
 
@@ -542,72 +542,81 @@ catch (Exception e)
                             </div><!--/col-sm-9-->
                         </div><!--/form-group-->
 
+                        <div class="form-group">
+                            <label name="lblFechaRegistro" class="col-sm-3 control-label">Subir Archivo</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="file" value="" form="frmElementoConfiguracion"/>
+                            </div>
+                        </div>
+
                         <div class="text-right">
                             <button type="submit" class="btn btn-success" name="btnGuardar" onclick="mtdSeleccion(this);">Guardar</button>
                         </div>
                     </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block-web">
-                            <div class="header">
-                                <div class="actions">
-                                    <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
-                                </div>
-                            </div>
-                            <div class="porlets-content">
-                                <div class="adv-table editable-table ">
-                                    <div class="margin-top-10"></div>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="dataTables_length" id="editable-sample_length">
-                                            </div>
-                                        </div><div class="col-lg-12"><label>Buscar: <input class="txtBuscar form-control" aria-controls="editable-sample" data-table="order-table" type="search" placeholder="Buscar por Nombre..." /></label></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="block-web">
+                                <div class="header">
+                                    <div class="actions">
+                                        <a class="minimize" href="#"><i class="fa fa-chevron-down"></i></a>
                                     </div>
-                                    <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
-                                        <thead>
-                                            <tr>
-                                                <th>Codigo</th>
-                                                <th>Proyecto</th>
-                                                <th>Fase</th>
-                                                <th>Elemento de Configuracióh</th>
-                                                <th>Estado</th>
-                                                <th>In-Out</th>
-                                                <th>Acción</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @try
-                                            {
-                                                foreach (var LobjRegistro in GobjListarElementoConfiguracion)
-                                                {
-                                                    <tr class="">
-                                                        <td>@LobjRegistro.PECcodigo</td>
-                                                        <td>@LobjRegistro.PRYnombre</td>
-                                                        <td>@LobjRegistro.MEFnombre</td>
-                                                        <td>@LobjRegistro.PECnombre</td>
-                                                        <td>@LobjRegistro.PECestado</td>
-                                                        <td>@LobjRegistro.PECestado_InOut</td>
-                                                        <td>
-                                                            <a class="btn btn-warning" href="~/cnfProyecto/cnfClsProyectoElementoConfiguracion/cnfFrmProyectoElementoConfiguracionVista/@LobjRegistro.PECcodigo">Modificar</a>
-                                                            <a class="btn btn-success" href="~/cnfProyecto/cnfClsProyectoElementoConfiguracion/cnfFrmProyectoElementoConfiguracionRelacionVista/@LobjRegistro.PECcodigo">Relación</a>
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            }
-                                            catch
-                                            {
-
-                                            }
-                                        </tbody>
-                                    </table>
                                 </div>
+                                <div class="porlets-content">
+                                    <div class="adv-table editable-table ">
+                                        <div class="margin-top-10"></div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="dataTables_length" id="editable-sample_length">
+                                                </div>
+                                            </div><div class="col-lg-12"><label>Buscar: <input class="txtBuscar form-control" aria-controls="editable-sample" data-table="order-table" type="search" placeholder="Buscar por Nombre..." /></label></div>
+                                        </div>
+                                        <table class="table table-striped table-hover table-bordered order-table" id="editable-sample">
+                                            <thead>
+                                                <tr>
+                                                    <th>Codigo</th>
+                                                    <th>Proyecto</th>
+                                                    <th>Fase</th>
+                                                    <th>Elemento de Configuración</th>
+                                                    <th>Estado</th>
+                                                    <th>In-Out</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @try
+                                                {
+                                                    foreach (var LobjRegistro in GobjListarElementoConfiguracion)
+                                                    {
+                                                        <tr class="">
+                                                            <td>@LobjRegistro.PECcodigo</td>
+                                                            <td>@LobjRegistro.PRYnombre</td>
+                                                            <td>@LobjRegistro.MEFnombre</td>
+                                                            <td>@LobjRegistro.PECnombre</td>
+                                                            <td>@LobjRegistro.PECestado</td>
+                                                            <td>@LobjRegistro.PECestado_InOut</td>
+                                                            <td>
+                                                                <a class="btn btn-warning" href="~/cnfProyecto/cnfClsProyectoElementoConfiguracion/cnfFrmProyectoElementoConfiguracionVista/@LobjRegistro.PECcodigo">Modificar</a>
+                                                                <a class="btn btn-success" href="~/cnfProyecto/cnfClsProyectoElementoConfiguracion/cnfFrmProyectoElementoConfiguracionRelacionVista/@LobjRegistro.PECcodigo">Relación</a>
+                                                                <a class="btn btn-primary" href="~/Uploads/@LobjRegistro.PEClocalizacion/@LobjRegistro.PECarchivo">Ver Archivo</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                catch
+                                                {
 
-                            </div><!--/porlets-content-->
-                        </div><!--/block-web-->
-                    </div><!--/col-md-12-->
-                </div><!--/row-->
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div><!--/porlets-content-->
+                            </div><!--/block-web-->
+                        </div><!--/col-md-12-->
+                    </div><!--/row-->
+                </div>
             </div>
-        </div>
     </div>
+</div>
 </div>

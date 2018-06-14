@@ -49,6 +49,12 @@ namespace cnfPrySGCS.Models
         [StringLength(250)]
         public string PECestado_InOut { get; set; }
 
+        [StringLength(250)]
+        public string PECarchivo { get; set; }
+
+        [StringLength(100)]
+        public string PECextension { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cnfEEMpEntregaEntregableMiembro> cnfEEMpEntregaEntregableMiembro { get; set; }
 
@@ -152,22 +158,29 @@ namespace cnfPrySGCS.Models
 
         public string mtdGuardarPrincipal(cnfPECpProyectoElementoConfiguracion LobjElementoConfiguracion)
         {
-            int LintMensajeRespuesta = -1;
+            var lintMensajeRespuesta = -1;
             try
             {
-                using (var LobjContexto = new cnfModelo())
+                using (var lobjContexto = new cnfModelo())
                 {
                     if (LobjElementoConfiguracion.PECcodigo == 0)
                     {
-                        LintMensajeRespuesta = LobjContexto.Database.ExecuteSqlCommand("exec usp_I_cnfPECpProyectoElementoConfiguracion_GuardarPrincipal " + "'" + LobjElementoConfiguracion.MEFcodigo + "', '" + LobjElementoConfiguracion.PRYcodigo + "', '" + LobjElementoConfiguracion.MNTcodigo + "', '" + LobjElementoConfiguracion.PLBcodigo + "', '" + LobjElementoConfiguracion.PEClocalizacion + "', '" + LobjElementoConfiguracion.PECnombre + "', '" + LobjElementoConfiguracion.PECdescripcion + "', '" + LobjElementoConfiguracion.PECtipo + "', '" + LobjElementoConfiguracion.PECestado + "', '" + LobjElementoConfiguracion.PECestado_InOut + "';");
+                        //LintMensajeRespuesta = LobjContexto.Database.ExecuteSqlCommand("exec usp_I_cnfPECpProyectoElementoConfiguracion_GuardarPrincipal " + "'" + LobjElementoConfiguracion.MEFcodigo + "', '" + LobjElementoConfiguracion.PRYcodigo + "', '" + LobjElementoConfiguracion.MNTcodigo + "', '" + LobjElementoConfiguracion.PLBcodigo + "', '" + LobjElementoConfiguracion.PEClocalizacion + "', '" + LobjElementoConfiguracion.PECnombre + "', '" + LobjElementoConfiguracion.PECdescripcion + "', '" + LobjElementoConfiguracion.PECtipo + "', '" + LobjElementoConfiguracion.PECestado + "', '" + LobjElementoConfiguracion.PECestado_InOut + "', '" + LobjElementoConfiguracion.PECarchivo + "';");
+                        lobjContexto.cnfPECpProyectoElementoConfiguracion.Add(LobjElementoConfiguracion);
+                        lobjContexto.SaveChanges();
+                        LobjElementoConfiguracion.PECarchivo = LobjElementoConfiguracion.PECcodigo + LobjElementoConfiguracion.PECextension;
+                        lobjContexto.SaveChanges();
+                        lintMensajeRespuesta = 1;
                     }
                 }
             }
             catch (Exception e)
             {
-
+                Console.WriteLine(e);
+                return mtdRespuestaMensaje(-1);
             }
-            return mtdRespuestaMensaje(LintMensajeRespuesta);
+
+            return mtdRespuestaMensaje(lintMensajeRespuesta);
         }
 
         public string mtdRespuestaMensaje(int LintMensajeRespuesta)
@@ -343,6 +356,12 @@ namespace cnfPrySGCS.Models
 
             [StringLength(250)]
             public string PECestado_InOut { get; set; }
+
+            [StringLength(250)]
+            public string PECarchivo { get; set; }
+
+            [StringLength(100)]
+            public string PECextension { get; set; }
         }
     }
 }

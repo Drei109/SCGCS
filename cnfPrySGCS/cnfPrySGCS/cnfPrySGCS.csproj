@@ -1103,6 +1103,7 @@
     <Folder Include="Areas\cnfCambios\Views\Shared\" />
     <Folder Include="Areas\cnfSeguridad\Models\" />
     <Folder Include="Areas\cnfSeguridad\Views\Shared\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

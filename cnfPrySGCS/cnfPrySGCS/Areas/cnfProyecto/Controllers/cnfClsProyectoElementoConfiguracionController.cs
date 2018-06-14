@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -86,7 +87,7 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
             return PobjProyectoElementoConfiguracion.mtdCargarDatosPrincipal(LintCodigo);
         }
 
-        public ActionResult mtdGuardarPrincipal(cnfPECpProyectoElementoConfiguracion.cnfPECpProyectoElementoConfiguracions LobjElementoConfiguracionModelo)
+        public ActionResult mtdGuardarPrincipal(cnfPECpProyectoElementoConfiguracion.cnfPECpProyectoElementoConfiguracions LobjElementoConfiguracionModelo, HttpPostedFileBase file)
         {
             string LstrMensajeRespuesta = "";
 
@@ -102,6 +103,8 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
             LobjElementoConfiguracion.PECtipo = LobjElementoConfiguracionModelo.PECtipo;
             LobjElementoConfiguracion.PECestado = LobjElementoConfiguracionModelo.PECestado;
             LobjElementoConfiguracion.PECestado_InOut = LobjElementoConfiguracionModelo.PECestado_InOut;
+            LobjElementoConfiguracion.PECextension = Path.GetExtension(file.FileName);
+            LobjElementoConfiguracion.PECarchivo = LobjElementoConfiguracionModelo.PECcodigo + Path.GetExtension(file.FileName);
 
             if (LobjElementoConfiguracion.PECcodigo == 0)
             {
@@ -114,6 +117,14 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
                 mtdRespuestaMensaje(LstrMensajeRespuesta);
 
             }
+
+            if (file != null)
+            {
+                Directory.CreateDirectory(Server.MapPath($"~/Uploads/{LobjElementoConfiguracion.PEClocalizacion}"));
+                file.SaveAs(Server.MapPath($"~/Uploads/{LobjElementoConfiguracion.PEClocalizacion}/{LobjElementoConfiguracion.PECarchivo}"));
+                //file.SaveAs();
+            }
+
             return Redirect("~/cnfProyecto/cnfClsProyectoElementoConfiguracion/cnfFrmProyectoElementoConfiguracionVista");
         }
 
