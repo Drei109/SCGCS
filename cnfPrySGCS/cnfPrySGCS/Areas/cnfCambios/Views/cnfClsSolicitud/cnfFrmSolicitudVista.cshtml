@@ -219,12 +219,15 @@ catch
                                             </tr>
                                         </thead>
                                         <tbody>
-                                       
-                                            @foreach (var solicitud in solicitudes)
+
+                                        @for (var i = 0; i < solicitudes.Count; i++)
+                                        {
+                                            var solicitud = solicitudes[i];
+                                            if (solicitud != null)
                                             {
                                                 <tr class="">
                                                     <td>@solicitud.SOLcodigo</td>
-                                                    <td>@(solicitud.cnfPRYpProyecto.PRYnombre)</td>
+                                                    <td>@solicitud.cnfPRYpProyecto.PRYnombre</td>
                                                     <td>@solicitud.cnfPECpProyectoElementoConfiguracion.PECnombre </td>
                                                     <td>@solicitud.SOLsolicitud </td>
                                                     <td>@solicitud.SOLfecha_Registro</td>
@@ -240,7 +243,9 @@ catch
                                                             <td>Inactivo</td>
                                                         }
                                                     }*@
-                                                    <td><a class="btn btn-warning" href="~/cnfMantenimiento/cnfClsMetodologia/cnfFrmMetodologiaVista/@Model.USUcodigo">Modificar</a></td>
+                                                    <td>
+                                                        <a class="btn btn-warning" href="~/cnfMantenimiento/cnfClsMetodologia/cnfFrmMetodologiaVista/@solicitud.SOLcodigo">Modificar</a>
+                                                    </td>
                                                 </tr>
                                             }
                                         }
