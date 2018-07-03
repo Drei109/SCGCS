@@ -13,7 +13,8 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
         // GET: cnfProyecto/cnfClsProyectoMiembro
         public ActionResult cnfFrmProyectoMiembroVista()
         {
-            ViewBag.GobjListarProyecto = mtdCargarComboProyecto(6);
+            var codigoUsuario = (int)Session["GintCodigoUsuario"];
+            ViewBag.GobjListarProyecto = mtdCargarComboProyecto(codigoUsuario);
             ViewBag.GblnCargarTabla = false;
 
             try

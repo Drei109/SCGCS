@@ -112,6 +112,7 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
 
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 var LobjRepositorioNuevo = await LobjCliente.Repository.Create(LobjRepositorio);
                 cnfUSUpUsuario LobjUsuario = new cnfUSUpUsuario();
                 using (var LobjContexto = new cnfModelo())

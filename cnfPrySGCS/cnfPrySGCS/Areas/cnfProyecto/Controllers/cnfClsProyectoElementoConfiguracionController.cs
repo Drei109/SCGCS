@@ -60,9 +60,12 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
         public ActionResult mtdCargarComboLineaBaseEntregable(int MEFcodigo)
         {
             var codigoUsuario = (int)Session["GintCodigoUsuario"];
+            var codigoProyecto = Convert.ToInt32(Session["GintPRYcodigo"].ToString());
             cnfPECpProyectoElementoConfiguracion LobjElementoConfiguracion = new cnfPECpProyectoElementoConfiguracion();
             ViewBag.GobjListarLineaBase = LobjElementoConfiguracion.mtdCargarComboLineaBase(MEFcodigo);
+            // AGREGAR codigoProyecto a la consulta
             ViewBag.GobjListarEntregable = LobjElementoConfiguracion.mtdCargarComboEntregable(MEFcodigo);
+
             ViewBag.GobjListarFase = LobjElementoConfiguracion.mtdCargarComboFase(Convert.ToInt32(Session["GintPRYcodigo"].ToString()));
             ViewBag.GobjListarProyecto = mtdCargarComboProyecto(codigoUsuario);
             ViewBag.GobjListarElementoConfiguracion = mtdCargarDatosPrincipal(codigoUsuario);
@@ -89,39 +92,39 @@ namespace cnfPrySGCS.Areas.cnfProyecto.Controllers
 
         public ActionResult mtdGuardarPrincipal(cnfPECpProyectoElementoConfiguracion.cnfPECpProyectoElementoConfiguracions LobjElementoConfiguracionModelo, HttpPostedFileBase file)
         {
-            string LstrMensajeRespuesta = "";
+            var lstrMensajeRespuesta = "";
 
-            cnfPECpProyectoElementoConfiguracion LobjElementoConfiguracion = new cnfPECpProyectoElementoConfiguracion();
-            LobjElementoConfiguracion.PECcodigo = LobjElementoConfiguracionModelo.PECcodigo;
-            LobjElementoConfiguracion.MEFcodigo = Convert.ToInt32(Session["GintMEFcodigo"].ToString());
-            LobjElementoConfiguracion.PRYcodigo = Convert.ToInt32(Session["GintPRYcodigo"].ToString());
-            LobjElementoConfiguracion.MNTcodigo = LobjElementoConfiguracionModelo.MNTcodigo;
-            LobjElementoConfiguracion.PLBcodigo = LobjElementoConfiguracionModelo.PLBcodigo;
-            LobjElementoConfiguracion.PEClocalizacion = LobjElementoConfiguracionModelo.PEClocalizacion;
-            LobjElementoConfiguracion.PECnombre = LobjElementoConfiguracionModelo.PECnombre;
-            LobjElementoConfiguracion.PECdescripcion = LobjElementoConfiguracionModelo.PECdescripcion;
-            LobjElementoConfiguracion.PECtipo = LobjElementoConfiguracionModelo.PECtipo;
-            LobjElementoConfiguracion.PECestado = LobjElementoConfiguracionModelo.PECestado;
-            LobjElementoConfiguracion.PECestado_InOut = LobjElementoConfiguracionModelo.PECestado_InOut;
-            LobjElementoConfiguracion.PECextension = Path.GetExtension(file.FileName);
-            LobjElementoConfiguracion.PECarchivo = LobjElementoConfiguracionModelo.PECcodigo + Path.GetExtension(file.FileName);
+            var lobjElementoConfiguracion = new cnfPECpProyectoElementoConfiguracion();
+            lobjElementoConfiguracion.PECcodigo = LobjElementoConfiguracionModelo.PECcodigo;
+            lobjElementoConfiguracion.MEFcodigo = Convert.ToInt32(Session["GintMEFcodigo"].ToString());
+            lobjElementoConfiguracion.PRYcodigo = Convert.ToInt32(Session["GintPRYcodigo"].ToString());
+            lobjElementoConfiguracion.MNTcodigo = LobjElementoConfiguracionModelo.MNTcodigo;
+            lobjElementoConfiguracion.PLBcodigo = LobjElementoConfiguracionModelo.PLBcodigo;
+            lobjElementoConfiguracion.PEClocalizacion = LobjElementoConfiguracionModelo.PEClocalizacion;
+            lobjElementoConfiguracion.PECnombre = LobjElementoConfiguracionModelo.PECnombre;
+            lobjElementoConfiguracion.PECdescripcion = LobjElementoConfiguracionModelo.PECdescripcion;
+            lobjElementoConfiguracion.PECtipo = LobjElementoConfiguracionModelo.PECtipo;
+            lobjElementoConfiguracion.PECestado = LobjElementoConfiguracionModelo.PECestado;
+            lobjElementoConfiguracion.PECestado_InOut = LobjElementoConfiguracionModelo.PECestado_InOut;
+            lobjElementoConfiguracion.PECextension = Path.GetExtension(file.FileName);
+            lobjElementoConfiguracion.PECarchivo = LobjElementoConfiguracionModelo.PECcodigo + Path.GetExtension(file.FileName);
 
-            if (LobjElementoConfiguracion.PECcodigo == 0)
+            if (lobjElementoConfiguracion.PECcodigo == 0)
             {
-                LstrMensajeRespuesta = LobjElementoConfiguracion.mtdGuardarPrincipal(LobjElementoConfiguracion);
-                mtdRespuestaMensaje(LstrMensajeRespuesta);
+                   lstrMensajeRespuesta = lobjElementoConfiguracion.mtdGuardarPrincipal(lobjElementoConfiguracion);
+                mtdRespuestaMensaje(lstrMensajeRespuesta);
             }
             else
             {
-                LstrMensajeRespuesta = mtdModificar(LobjElementoConfiguracion);
-                mtdRespuestaMensaje(LstrMensajeRespuesta);
+                lstrMensajeRespuesta = mtdModificar(lobjElementoConfiguracion);
+                mtdRespuestaMensaje(lstrMensajeRespuesta);
 
             }
 
             if (file != null)
             {
-                Directory.CreateDirectory(Server.MapPath($"~/Uploads/{LobjElementoConfiguracion.PEClocalizacion}"));
-                file.SaveAs(Server.MapPath($"~/Uploads/{LobjElementoConfiguracion.PEClocalizacion}/{LobjElementoConfiguracion.PECarchivo}"));
+                Directory.CreateDirectory(Server.MapPath($"~/Uploads/{lobjElementoConfiguracion.PEClocalizacion}"));
+                file.SaveAs(Server.MapPath($"~/Uploads/{lobjElementoConfiguracion.PEClocalizacion}/{lobjElementoConfiguracion.PECarchivo}"));
                 //file.SaveAs();
             }
 

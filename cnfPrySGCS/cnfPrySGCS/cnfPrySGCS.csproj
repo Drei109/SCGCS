@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -94,6 +95,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
@@ -129,17 +131,15 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +166,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\autocomplete.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -1022,6 +1023,9 @@
     <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\cnfFrmEntregaResponsable.cshtml" />
     <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\cnfFrmEntregaVista.cshtml" />
     <Content Include="Areas\cnfProyecto\Views\cnfClsEntrega\View.cshtml" />
+    <Content Include="Areas\cnfCambios\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\cnfCambios\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\cnfCambios\Views\cnfClsSolicitud\cnfFrmSolicitudVista.cshtml" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -1033,6 +1037,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\cnfCambios\cnfCambiosAreaRegistration.cs" />
+    <Compile Include="Areas\cnfCambios\Controllers\cnfClsSolicitudController.cs" />
     <Compile Include="Areas\cnfMantenimiento\cnfMantenimientoAreaRegistration.cs" />
     <Compile Include="Areas\cnfMantenimiento\Controllers\cnfClsEntregableController.cs" />
     <Compile Include="Areas\cnfMantenimiento\Controllers\cnfClsFaseController.cs" />
@@ -1067,12 +1072,12 @@
     <Compile Include="Areas\cnfProyecto\Models\cnfPMIpProyectoMiembro.cs" />
     <Compile Include="Areas\cnfProyecto\Models\cnfPRYpProyecto.cs" />
     <Compile Include="Areas\cnfProyecto\Models\cnfPYEpProyectoEntregable.cs" />
-    <Compile Include="Models\cnfSCCpSolicitudComiteCambio.cs" />
-    <Compile Include="Models\cnfSEVpSolicitudEvaluador.cs" />
-    <Compile Include="Models\cnfSIApSolicitudInformeAprobacion.cs" />
-    <Compile Include="Models\cnfSICpSolicitudInformeCambio.cs" />
-    <Compile Include="Models\cnfSMCpSolicitudMiembroCambio.cs" />
-    <Compile Include="Models\cnfSOLpSolicitud.cs" />
+    <Compile Include="Areas\cnfCambios\Models\cnfSCCpSolicitudComiteCambio.cs" />
+    <Compile Include="Areas\cnfCambios\Models\cnfSEVpSolicitudEvaluador.cs" />
+    <Compile Include="Areas\cnfCambios\Models\cnfSIApSolicitudInformeAprobacion.cs" />
+    <Compile Include="Areas\cnfCambios\Models\cnfSICpSolicitudInformeCambio.cs" />
+    <Compile Include="Areas\cnfCambios\Models\cnfSMCpSolicitudMiembroCambio.cs" />
+    <Compile Include="Areas\cnfCambios\Models\cnfSOLpSolicitud.cs" />
     <Compile Include="Areas\cnfMantenimiento\Models\cnfUSUpUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1098,9 +1103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\cnfCambios\Controllers\" />
-    <Folder Include="Areas\cnfCambios\Models\" />
-    <Folder Include="Areas\cnfCambios\Views\Shared\" />
     <Folder Include="Areas\cnfSeguridad\Models\" />
     <Folder Include="Areas\cnfSeguridad\Views\Shared\" />
     <Folder Include="Uploads\" />
