@@ -25,13 +25,7 @@ namespace cnfPrySGCS.Areas.cnfCambios.Controllers
         public ActionResult Guardar(cnfSOLpSolicitud solicitud)
         {
             var codigoUsuario = (int)Session["GintCodigoUsuario"];
-            var proyectos = _db.cnfPRYpProyecto.Where(x => x.USUcodigo == codigoUsuario).ToList();
-
-            ViewBag.PRYcodigo = new SelectList(proyectos, "PRYcodigo", "PRYnombre");
-            ViewBag.UsuarioNombre = _db.cnfUSUpUsuario.FirstOrDefault(x => x.USUcodigo == codigoUsuario)?.USUnombre + " " +
-                                    _db.cnfUSUpUsuario.FirstOrDefault(x => x.USUcodigo == codigoUsuario)?.USUapellido;
-            ViewBag.Solicitudes = _db.cnfSOLpSolicitud.Include("cnfPRYpProyecto").Include("cnfUSUpUsuario").ToList();
-
+            
             solicitud.SOLfecha_Registro = DateTime.Now;
             solicitud.USUcodigo = codigoUsuario;
 
@@ -43,6 +37,13 @@ namespace cnfPrySGCS.Areas.cnfCambios.Controllers
                 _db.SaveChanges();
                 return View("cnfFrmSolicitudVista");
             }
+
+            var proyectos = _db.cnfPRYpProyecto.Where(x => x.USUcodigo == codigoUsuario).ToList();
+
+            ViewBag.PRYcodigo = new SelectList(proyectos, "PRYcodigo", "PRYnombre");
+            ViewBag.UsuarioNombre = _db.cnfUSUpUsuario.FirstOrDefault(x => x.USUcodigo == codigoUsuario)?.USUnombre + " " +
+                                    _db.cnfUSUpUsuario.FirstOrDefault(x => x.USUcodigo == codigoUsuario)?.USUapellido;
+            ViewBag.Solicitudes = _db.cnfSOLpSolicitud.Include("cnfPRYpProyecto").Include("cnfUSUpUsuario").ToList();
 
             return View("cnfFrmSolicitudVista", solicitud);
         }
